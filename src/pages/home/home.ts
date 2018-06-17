@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {SystemService} from "../../core/system.service";
+import {MenuService} from "../../core/menu.service";
 
 /**
  * Generated class for the HomePage page.
@@ -15,7 +17,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private systemService:SystemService,
+              private menuService:MenuService
+  ) {
+    let app = this.systemService.getAppComponentInstance();
+    app.pages = this.menuService.getMenu();
+    app.user = this.systemService.getUser();
   }
 
   ionViewDidLoad() {

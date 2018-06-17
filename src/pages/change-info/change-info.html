@@ -1,5 +1,5 @@
 <!--
-  Generated template for the LoginPage page.
+  Generated template for the ChangeInfoPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,14 +7,16 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Login</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Info</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content>
-
+<ion-content padding>
   <ion-grid>
     <ion-row>
       <ion-col offset-1 col-3>
@@ -26,23 +28,25 @@
     </ion-row>
     <ion-row>
       <ion-col offset-1 col-3>
-        <ion-label >密码</ion-label>
+        <ion-label >原密码</ion-label>
       </ion-col>
       <ion-col col-7>
-        <ion-input type="password" [(ngModel)]="password"></ion-input>
+        <ion-input type="password" [(ngModel)]="oldPwd"></ion-input>
       </ion-col>
     </ion-row>
-
+    <ion-row>
+      <ion-col offset-1 col-3>
+        <ion-label >新密码</ion-label>
+      </ion-col>
+      <ion-col col-7>
+        <ion-input type="password" [(ngModel)]="mewPwd"></ion-input>
+      </ion-col>
+    </ion-row>
   </ion-grid>
-
   <ion-buttons padding>
     <div>
-      <button ion-button color="primary" (click)="login()">登陆</button>
-    </div>
-    <div>
-      <button ion-button color="primary" outline (click)="register()">注册</button>
+      <button ion-button color="primary" (click)="change()">修改</button>
     </div>
   </ion-buttons>
-
 
 </ion-content>

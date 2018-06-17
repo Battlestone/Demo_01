@@ -1,0 +1,33 @@
+ion-navbar.toolbar{
+  text-align: center;
+}
+
+::-webkit-scrollbar {
+  display: none !important;
+}
+
+body.swal2-shown {
+  height: 100% !important;
+}
+
+button {
+  // 取消默认的按钮英文大写
+  text-transform: none !important;
+}
+
+ion-navbar.toolbar {
+  div {
+    background-color: #488aff;
+    color: white;
+    font-weight: normal;
+    font-size: 17px;
+  }
+  button {
+    color: white;
+  }
+}
+
+ion-input{
+  background-color: #e0e2e6;
+}
+

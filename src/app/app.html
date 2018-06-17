@@ -7,14 +7,14 @@
 
   <ion-content>
     <ion-list>
-      <ion-item>欢迎{{ user?.name }}登陆</ion-item>
+      <ion-item>{{ user?.name }}</ion-item>
     </ion-list>
     <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p?.title}}
       </button>
     </ion-list>
-    <button>退出</button>
+    <button ion-button clear color="danger" (click)="logout()">退出</button>
 
   </ion-content>
 

@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, MenuController, NavController, NavParams} from 'ionic-angular';
+import {SystemService} from "../../core/system.service";
+
+import swal from 'sweetalert2';
+
 
 /**
  * Generated class for the RegisterPage page.
@@ -15,11 +19,40 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RegisterPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private name='';
+  private password='';
+
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private menu: MenuController,
+              private systemService:SystemService
+  ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
+  }
+  ionViewDidEnter() {
+    //to disable menu
+    this.menu.enable(false);
+  }
+
+  ionViewWillLeave() {
+    // to enable menu
+    this.menu.enable(true);
+  }
+
+  register(){
+    this.systemService.register(this.name,this.password).subscribe(res=>{
+      if(res.code!=0){
+        swal('警告', res.errorReason, 'warning');
+        return;
+      }else{
+        swal('成功', '注册成功，请去登陆', 'success');
+        this.navCtrl.pop();
+        return;
+      }
+    });
   }
 
 }

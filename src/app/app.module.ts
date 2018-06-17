@@ -7,10 +7,8 @@ import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {LoginPageModule} from "../pages/login/login.module";
-import {LogoutPageModule} from "../pages/logout/logout.module";
 import {RegisterPageModule} from "../pages/register/register.module";
 import {CoreModule} from "../core/core.module";
-import {HomePageModule} from "../pages/home/home.module";
 
 @NgModule({
   declarations: [
@@ -18,12 +16,10 @@ import {HomePageModule} from "../pages/home/home.module";
   ],
   imports: [
     BrowserModule,
+    IonicModule.forRoot(MyApp),
     CoreModule,
     LoginPageModule,
-    LogoutPageModule,
     RegisterPageModule,
-    HomePageModule,
-    IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [

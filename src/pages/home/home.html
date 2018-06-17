@@ -6,7 +6,10 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar hideBackButton>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>Home</ion-title>
   </ion-navbar>
 
@@ -14,5 +17,12 @@
 
 
 <ion-content padding>
-
+  <ion-card>
+    <ion-card-header>
+      登陆成功！
+    </ion-card-header>
+    <ion-card-content>
+      欢迎 {{user?.name}} 登陆！
+    </ion-card-content>
+  </ion-card>
 </ion-content>

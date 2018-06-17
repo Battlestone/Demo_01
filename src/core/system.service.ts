@@ -8,11 +8,21 @@ import {ResData} from "../shared/shared";
 @Injectable()
 export class SystemService {
 
-  private user={};
+  private user:any;
+  appComponent:any;
+
 
   constructor(
     private http:HttpClient){
 
+  }
+
+  getAppComponentInstance(){
+    return this.appComponent;
+  }
+
+  setAppComponentInstance(app){
+    this.appComponent = app;
   }
 
   register(name,password):Observable<ResData>{
@@ -45,14 +55,16 @@ export class SystemService {
     return this.http.post<ResData>(hostip+'system/login',params,options);
   }
 
-  logout():Observable<ResData>{
-    let headers = new HttpHeaders()
-      .set('Content-Type', 'application/json') ;
-    // .set('Token', this.systemService.getLoginToken())
-    let options = {
-      headers: headers
-    };
-    return this.http.get<ResData>(hostip+'system/logout',options);
+  logout(){
+   this.setUser(null);
+  }
+
+  setUser(user){
+    this.user=user;
+  }
+
+  getUser(){
+    return this.user;
   }
 
 }
